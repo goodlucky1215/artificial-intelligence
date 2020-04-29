@@ -1,0 +1,12 @@
+ toji.model 파일이 있는 곳에 만약 다음과 같이 docker 에 입력하면
+
+>>>form gensim.models import word2vec
+>>>model = word2vec.Word2Vec.load("toji.model")
+>>> model.most_similar(positive=["땅"])
+positive라고 해서 땅과 비슷한 단어를 가져오고
+negative로 입력하면 반대 돼는 단어를 가져온다.
+>>> model.most_similar(positive=["땅"])[0:3]
+하면 3개까지만 잘라서 단어가 나온다.
+>>> model.most_similar(positive=["땅","중국"],negative["서울"])[0:3]
+이런식으로하면 서울과는 관련이 없으나,
+땅과 중국과는 관련이 있는 단어만 색출해서 나옴.
